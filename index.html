@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nuestra Historia 💖</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Página Principal -->
+    <section id="inicio" class="pagina activa">
+        <div class="contenedor-iphone">
+            <div class="corazones-flotantes">
+                <!-- Corazones se generan dinámicamente -->
+            </div>
+            
+            <h1>Mi Vida 💘</h1>
+            
+            <div class="contador-glass">
+                <p id="contador">Cargando nuestro tiempo...</p>
+            </div>
+            
+            <div class="tarjeta-descripcion">
+                <p>Desde el 8 de Enero del 2024, cada día a tu lado ha sido una bendición. Esta es nuestra cápsula del tiempo digital ❤️</p>
+            </div>
+            
+            <button class="boton-ios" onclick="navegarA('meses')">
+                Ver Nuestra Historia
+                <span class="icono">👉🏼</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Sección de Meses -->
+    <section id="meses" class="pagina">
+        <div class="contenedor-meses" id="contenedorMeses"></div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
