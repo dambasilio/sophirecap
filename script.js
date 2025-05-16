@@ -1,9 +1,8 @@
-// Configuración inicial
 const fechaInicio = new Date('2024-01-08T00:00:00');
 const mesesContenido = {
     1: {
-        titulo: "Nuestro Primer Mes 💖",
-        contenido: "Enero 2024 - El mes donde todo comenzó... Nuestros primeros mensajes, esa primera cita inolvidable y el inicio de esta hermosa historia de amor."
+        titulo: "Nuestro primer mesesito ",
+        contenido: "Enero 2024 - Este fue el mesesito donde todo empezó ya de veritas de veritas, porque desde hace mesesitos antees yo ya pues de verdad estaba muy enamorado de tii, la verdad desde que comenzó Enero yo ya estaba con demasiadas ganas de verte porque estabas en cancuun (justo como ahorita jeje), pero pues te extrañaba de que demasiado demasiadoo, en Diciembre te habia comprado tu anilloo y queria dartelo yaaa, yo ya queria ser tu novio 😭😭😭, fue entre Diciembre y Enero cuando me di cuenta de que realmente te amaba demasiado pero demasiado porque te juro que todos los dias que pasaron de esas vacaciones eras la unica persona en la que estaba pensando y la que mas extrañeee 😭"
     },
     2: {
         titulo: "Segundo Mes 🌸",
@@ -15,7 +14,6 @@ const mesesContenido = {
     }
 };
 
-// Inicialización
 document.addEventListener('DOMContentLoaded', () => {
     crearCorazones();
     actualizarContador();
@@ -23,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(actualizarContador, 1000);
 });
 
-// Función para crear corazones flotantes
 function crearCorazones() {
     const contenedor = document.querySelector('.corazones-flotantes');
     const corazones = ['💖', '💕', '💞', '💓', '💗'];
@@ -38,7 +35,6 @@ function crearCorazones() {
     }
 }
 
-// Actualizar contador de tiempo
 function actualizarContador() {
     const ahora = new Date();
     const diferencia = ahora - fechaInicio;
@@ -50,26 +46,21 @@ function actualizarContador() {
     const meses = Math.floor(dias / 30.436875);
     const diasRestantes = Math.floor(dias % 30.436875);
     
-    document.getElementById('contador').innerHTML = `
+    document.getElementById('texto-contador').innerHTML = `
         🕰️ Tiempo Juntos:<br>
         ${meses} Meses ${diasRestantes} Días<br>
-        ${dias} Días Totales
+        ${dias} Días Totales<br><br>
+        💖 ${horas} Horas de Amor 💖
     `;
 }
 
-// Navegación entre páginas
 function navegarA(destino) {
     document.querySelectorAll('.pagina').forEach(pag => pag.classList.remove('activa'));
     document.getElementById(destino).classList.add('activa');
-    
-    if (destino === 'meses') {
-        cambiarMes(1);
-    }
-    
+    if (destino === 'meses') cambiarMes(1);
     window.scrollTo(0, 0);
 }
 
-// Generar meses automáticamente
 function generarMeses() {
     const contenedor = document.getElementById('contenedorMeses');
     const totalMeses = calcularMeses();
@@ -80,7 +71,7 @@ function generarMeses() {
         tarjeta.id = `mes-${mes}`;
         tarjeta.innerHTML = `
             <div class="header-ios">
-                <button class="boton-regreso" onclick="navegarA('inicio')">⬅️</button>
+                <button class="boton-regreso" onclick="navegarA('contador')">⬅️</button>
                 <h2>${mesesContenido[mes]?.titulo || `Mes ${mes}`}</h2>
             </div>
             <div class="contenido-mes">
@@ -98,9 +89,7 @@ function generarMeses() {
 function cambiarMes(numeroMes) {
     document.querySelectorAll('.tarjeta-mes').forEach(mes => mes.style.display = 'none');
     const mesActual = document.getElementById(`mes-${numeroMes}`);
-    if (mesActual) {
-        mesActual.style.display = 'block';
-    }
+    if (mesActual) mesActual.style.display = 'block';
 }
 
 function calcularMeses() {
@@ -109,13 +98,7 @@ function calcularMeses() {
            (ahora.getMonth() - fechaInicio.getMonth()) + 1;
 }
 
-// Optimización táctil para iOS
 document.querySelectorAll('button').forEach(btn => {
-    btn.addEventListener('touchstart', () => {
-        btn.style.transform = 'scale(0.95)';
-    });
-    
-    btn.addEventListener('touchend', () => {
-        btn.style.transform = 'scale(1)';
-    });
+    btn.addEventListener('touchstart', () => btn.style.transform = 'scale(0.95)');
+    btn.addEventListener('touchend', () => btn.style.transform = 'scale(1)');
 });
