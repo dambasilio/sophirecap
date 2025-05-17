@@ -136,7 +136,7 @@ function generarMeses() {
         tarjeta.className = 'tarjeta-mes';
         tarjeta.id = `mes-${mes}`;
         tarjeta.innerHTML = `
-            <div class="header-ios">
+            <div class="header-mes">
                 <button class="boton-regreso" onclick="navegarA('contador')">⬅️</button>
                 <h2>${mesesContenido[mes]?.titulo || `Mes ${mes}`}</h2>
             </div>
@@ -163,17 +163,17 @@ function cambiarMes(numeroMes) {
     // Validar límites
     if (numeroMes < 1 || numeroMes > totalMeses) return;
     
-    document.querySelectorAll('.tarjeta-mes').forEach(mes => mes.style.display = 'none');
+    document.querySelectorAll('.tarjeta-mes').forEach(mes => {
+        mes.style.display = 'none';
+        mes.style.animation = 'none'; // Resetear animación
+    });
     const mesActual = document.getElementById(`mes-${numeroMes}`);
     
     if (mesActual) {
         mesActual.style.display = 'block';
-        // Actualizar estado de botones
-        const botonAnterior = mesActual.querySelector('.boton-control:first-child');
-        const botonSiguiente = mesActual.querySelector('.boton-control:last-child');
-        
-        botonAnterior.disabled = (numeroMes === 1);
-        botonSiguiente.disabled = (numeroMes === totalMeses);
+        // Forzar reinicio de animación
+        void mesActual.offsetWidth;
+        mesActual.style.animation = 'slide 0.4s ease-out';
     }
 }
 

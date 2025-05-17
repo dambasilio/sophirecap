@@ -160,8 +160,8 @@ h1 {
     background: none;
     border: none;
     color: #6b446b;
-    font-size: 1.1rem;
-    margin-top: 20px;
+    font-size: 1.2rem;
+    margin-top: 0px;
     cursor: pointer;
 }
 
@@ -176,6 +176,11 @@ h1 {
     100% { transform: scale(1); }
 }
 
+@keyframes slide {
+    from { transform: translateX(20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
 .contenedor-meses {
     max-width: 430px;
     margin: 0 auto;
@@ -188,6 +193,7 @@ h1 {
     border-radius: 20px;
     margin: 20px 0;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    animation: slide 0.4s ease-out;
 }
 
 .controles-mes {
@@ -233,4 +239,11 @@ h1 {
     margin-top: 30px;
     position: relative; /* Nueva propiedad añadida */
     padding: 15px 0;
+}
+
+.header-mes {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre flecha y título */
+    margin-bottom: 25px; /* Separación del contenido */
 }
