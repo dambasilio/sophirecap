@@ -201,7 +201,7 @@ function crearChunis() {
     chuni.className = 'chunis-lluvia';
     chuni.style.left = `${Math.random() * 100}%`;
     chuni.style.animationDuration = `${Math.random() * 5 + 3}s`;
-    chuni.style.size = `${Math.random() * 50 + 30}px`; // Entre 20px y 50px
+    chuni.style.size = `${Math.random() * 70 + 50}px`; // Entre 20px y 50px
     
     document.getElementById('lluvia-container').appendChild(chuni);
     
