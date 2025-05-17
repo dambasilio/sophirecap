@@ -44,11 +44,11 @@ body {
 
 h1 {
     font-family: 'Pacifico', cursive;
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     color: white;
     text-shadow: var(--sombra-ios);
     margin: 20px 0;
-    transform: rotate(-2deg);
+    transform: rotate(0deg);
 }
 
 .tarjeta-descripcion {
