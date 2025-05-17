@@ -75,31 +75,10 @@ const mesesContenido = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    crearCorazones();
     actualizarContador();
     generarMeses();
     setInterval(actualizarContador, 1000);
 });
-
-function crearCorazones() {
-    const contenedor = document.querySelector('.corazones-flotantes');
-    
-    for(let i = 0; i < 15; i++) {
-        const corazon = document.createElement('div');
-        corazon.className = 'corazon';
-        
-        // Configuración clave
-        corazon.style.left = Math.random() * 100 + '%';
-        corazon.style.animationDelay = Math.random() * 3 + 's'; // Retraso inicial aleatorio
-        
-        const img = document.createElement('img');
-        img.src = 'chunis.png';
-        img.alt = 'Chunis flotando';
-        corazon.appendChild(img);
-        
-        contenedor.appendChild(corazon);
-    }
-}
 
 function actualizarContador() {
     const ahora = new Date();
@@ -121,20 +100,37 @@ function actualizarContador() {
 }
 
 function navegarA(destino) {
-    document.querySelectorAll('.pagina').forEach(pag => pag.classList.remove('activa'));
-    document.getElementById(destino).classList.add('activa');
-    if (destino === 'meses') cambiarMes(1);
+    // Ocultar todas las páginas
+    document.querySelectorAll('.pagina').forEach(pag => {
+        pag.classList.remove('activa');
+    });
+    
+    // Mostrar la página solicitada
+    const paginaDestino = document.getElementById(destino);
+    if (paginaDestino) {
+        paginaDestino.classList.add('activa');
+        
+        // Mostrar primer mes si navegamos a la sección de meses
+        if (destino === 'meses') {
+            cambiarMes(1);
+        }
+    }
+    
+    // Scroll al inicio
     window.scrollTo(0, 0);
 }
 
 function generarMeses() {
     const contenedor = document.getElementById('contenedorMeses');
     const totalMeses = calcularMeses();
-    
+
     for(let mes = 1; mes <= totalMeses; mes++) {
         const tarjeta = document.createElement('div');
         tarjeta.className = 'tarjeta-mes';
         tarjeta.id = `mes-${mes}`;
+        tarjeta.style.display = 'none'; // Ocultar por defecto
+
+        // Contenido base del mes
         tarjeta.innerHTML = `
             <div class="header-mes">
                 <button class="boton-regreso" onclick="navegarA('contador')">⬅️</button>
@@ -144,10 +140,24 @@ function generarMeses() {
                 <p>${mesesContenido[mes]?.contenido || 'Contenido en desarrollo...'}</p>
             </div>
             <div class="controles-mes">
-                <button class="boton-control" ${mes === 1 ? 'disabled' : ''} onclick="cambiarMes(${mes-1})">⬅️ Anterior</button>
-                <button class="boton-control" ${mes === totalMeses ? 'disabled' : ''} onclick="cambiarMes(${mes+1})">Siguiente ➡️</button>
+                <button class="boton-control" ${mes === 1 ? 'disabled' : ''} 
+                    onclick="cambiarMes(${mes-1})">⬅️ Anterior</button>
+                <button class="boton-control" ${mes === totalMeses ? 'disabled' : ''} 
+                    onclick="cambiarMes(${mes+1})">Siguiente ➡️</button>
             </div>
         `;
+
+        // Botones especiales solo en el último mes
+        if(mes === totalMeses) {
+            tarjeta.innerHTML += `
+                <div class="botones-finales">
+                    <button class="boton-ios" onclick="navegarA('final')">
+                        Click aqui mi niña
+                    </button>
+                </div>
+            `;
+        }
+
         contenedor.appendChild(tarjeta);
     }
 }
@@ -158,22 +168,26 @@ function calcularMeses() {
 }
 
 function cambiarMes(numeroMes) {
-    const totalMeses = calcularMeses();
-    
-    // Validar límites
-    if (numeroMes < 1 || numeroMes > totalMeses) return;
-    
+    // Ocultar todos los meses
     document.querySelectorAll('.tarjeta-mes').forEach(mes => {
         mes.style.display = 'none';
-        mes.style.animation = 'none'; // Resetear animación
+        mes.style.opacity = '0';
     });
-    const mesActual = document.getElementById(`mes-${numeroMes}`);
     
+    // Mostrar mes actual con animación
+    const mesActual = document.getElementById(`mes-${numeroMes}`);
     if (mesActual) {
         mesActual.style.display = 'block';
         // Forzar reinicio de animación
-        void mesActual.offsetWidth;
-        mesActual.style.animation = 'slide 0.4s ease-out';
+        void mesActual.offsetWidth; // Truco para reiniciar animación
+        mesActual.style.opacity = '1';
+        mesActual.style.transform = 'translateY(0)';
+        
+        // Actualizar estado de botones
+        const totalMeses = calcularMeses();
+        const botones = mesActual.querySelectorAll('.boton-control');
+        botones[0].disabled = (numeroMes === 1);
+        botones[1].disabled = (numeroMes === totalMeses);
     }
 }
 
