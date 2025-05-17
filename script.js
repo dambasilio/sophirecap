@@ -34,7 +34,7 @@ const mesesContenido = {
     },
     9: {
         titulo: "Ochoo pinocho niña",
-        contenido: "Septiembre 2024 - Fue un mes bonitooo por muchas cosaaas contigo, me acuerdo muchisimo del dia en el que hicimos galletitas en mi casitaaa, la verdad estuve muy feliiz ese diaa, tambien fue la ultima vez que yo estaba con el cabello largo que teniaaa y me lo cortee, me daba miedo verme muy feoo asi pero me senti demasiado amado por ti mi niña hermosaa, ese mes fue el concierto de travi y dannyluts, me regalaste mi playera y me hiciste mi maletin de utopia a manooo 😭😭😭, me encanto demasiado de verdad (esta justo aki al lado de mi en mi closet jeje) y fue un regalo super bonito porqu eestaba super emocionado 😭, me lleve una parte de ti a un concierto especial y una partesita de ti me acompañoo durante todotodo el viaje gracias a esa playeraa 💞"
+        contenido: "Septiembre 2024 - Fue un mes bonitooo por muchas cosaaas contigo, me acuerdo muchisimo del dia en el que hicimos galletitas en mi casitaaa, la verdad estuve muy feliiz ese diaa, tambien fue la ultima vez que yo estaba con el cabello largo que teniaaa y me lo cortee, me daba miedo verme muy feoo asi pero me senti demasiado amado por ti mi niña hermosaa, ese mes fue el concierto de travi y dannyluts, me regalaste mi playera y me hiciste mi maletin de utopia a manooo 😭😭😭, me encanto demasiado de verdad (esta justo aki al lado de mi en mi closet jeje) y fue un regalo super bonito porque estaba super emocionado 😭, me lleve una parte de ti a un concierto especial y una partesita de ti me acompañoo durante todotodo el viaje gracias a esa playeraa 💞"
     },
     10: {
         titulo: "9 mesesesess",
@@ -50,7 +50,7 @@ const mesesContenido = {
     },
     13: {
         titulo: "11:11",
-        contenido: "Diciembre 2024 - Mes de navidaaad, citas navideñaaaas, pero antes de las citas navideñas fue en este mes en el que fuimos a los museos en Ciudad de Mexicooo, fue muy divertido y bonito ir contigo por la ciudad y visitar todos esos lugares juntooos, tuvimos nuestras citas bonitas navideñaaas, mi cita favorita de ese mes fue en la que fuimos a patinaaar, nunca habia patinado sobre hielo en mi vida anteees (solo intentado pero no funciono 😞), asi que estaba aprendiendo contigooo ese dia, fue un sueño hecho realidad patinar contigo agarrados de la manoo, ayyyy amor de verdad eres una hermosa y una preciosa, nos sabes cuanto te adoroo, quisiera estar contigo en este momento 😞😞😞"
+        contenido: "Diciembre 2024 - Mes de navidaaad, citas navideñaaaas, pero antes de las citas navideñas fue en este mes en el que fuimos a los museos en Ciudad de Mexicooo, fue muy divertido y bonito ir contigo por la ciudad y visitar todos esos lugares juntooos, tuvimos nuestras citas bonitas navideñaaas, mi cita favorita de ese mes fue en la que fuimos a patinaaar, nunca habia patinado sobre hielo en mi vida anteees (solo intentado pero no funciono 😞), asi que estaba aprendiendo contigooo ese dia, fue un sueño hecho realidad patinar contigo agarrados de la manoo, ayyyy amor de verdad eres una hermosa y una preciosa, no sabes cuanto te adoroo, quisiera estar contigo en este momento 😞😞😞"
     },
     14: {
         titulo: "OMGOGMOGMOGMG 1 AÑOOOOOO",
