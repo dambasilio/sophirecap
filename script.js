@@ -113,10 +113,10 @@ function actualizarContador() {
     const diasRestantes = Math.floor(dias % 30.436875);
     
     document.getElementById('texto-contador').innerHTML = `
-        🕰️ Tiempo Juntos:<br>
-        ${meses} Meses ${diasRestantes} Días<br>
-        ${dias} Días Totales<br><br>
-        💖 ${horas} Horas de Amor 💖
+        Mi amorchiis, primero que todoo pues como ya habia dicho antes la verdad no se en que dia estarás viendo estoo 😞. Este es el tiempo que llevamos juntitos hasta ahoritaaa:<br><br>
+        ${meses} Meses y ${diasRestantes} Días enamorado de ti.<br><br>
+        ${dias} Días con el amor de mi vida.<br><br>
+        ${horas} Horas de amor infinito por ti.<br><br> Aki abajo verás todo lo que pasamos en nuestros mesesitos y muchas mas cositas que quise decirte, te amo bonita 💗.
     `;
 }
 
