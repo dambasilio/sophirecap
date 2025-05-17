@@ -87,13 +87,14 @@ function crearCorazones() {
     for(let i = 0; i < 15; i++) {
         const corazon = document.createElement('div');
         corazon.className = 'corazon';
-        corazon.style.left = Math.random() * 100 + '%';
-        corazon.style.animationDelay = Math.random() * 5 + 's';
         
-        // ✅ Crear elemento imagen
+        // Configuración clave
+        corazon.style.left = Math.random() * 100 + '%';
+        corazon.style.animationDelay = Math.random() * 3 + 's'; // Retraso inicial aleatorio
+        
         const img = document.createElement('img');
-        img.src = 'chunis.png'; // Asegúrate de tener el archivo en tu carpeta
-        img.alt = 'Nuestra mascota Chunis'; // Texto descriptivo
+        img.src = 'chunis.png';
+        img.alt = 'Chunis flotando';
         corazon.appendChild(img);
         
         contenedor.appendChild(corazon);
