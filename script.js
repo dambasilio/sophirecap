@@ -191,6 +191,59 @@ function cambiarMes(numeroMes) {
     }
 }
 
+let lluviaActiva = false;
+
+function crearChunis() {
+    if (!lluviaActiva) return;
+    
+    const chuni = document.createElement('img');
+    chuni.src = 'chunis.png';
+    chuni.className = 'chunis-lluvia';
+    chuni.style.left = `${Math.random() * 100}%`;
+    chuni.style.animationDuration = `${Math.random() * 5 + 3}s`;
+    chuni.style.size = `${Math.random() * 50 + 30}px`; // Entre 20px y 50px
+    
+    document.getElementById('lluvia-container').appendChild(chuni);
+    
+    // Eliminar el elemento después de la animación
+    setTimeout(() => chuni.remove(), 8000);
+}
+
+function iniciarLluvia() {
+    lluviaActiva = true;
+    setInterval(crearChunis, 100);
+}
+
+function detenerLluvia() {
+    lluviaActiva = false;
+}
+
+// Modifica la función navegarA
+function navegarA(destino) {
+    // Ocultar todas las páginas
+    document.querySelectorAll('.pagina').forEach(pag => {
+        pag.classList.remove('activa');
+        if (pag.id === 'pagina-vacia') detenerLluvia();
+    });
+    
+    // Mostrar la página solicitada
+    const paginaDestino = document.getElementById(destino);
+    if (paginaDestino) {
+        paginaDestino.classList.add('activa');
+        
+        // Iniciar lluvia solo en la página correspondiente
+        if (destino === 'pagina-vacia') iniciarLluvia();
+        
+        // Mostrar primer mes si navegamos a la sección de meses
+        if (destino === 'meses') {
+            cambiarMes(1);
+        }
+    }
+    
+    // Scroll al inicio
+    window.scrollTo(0, 0);
+}
+
 
 document.querySelectorAll('button').forEach(btn => {
     btn.addEventListener('touchstart', () => btn.style.transform = 'scale(0.95)');
